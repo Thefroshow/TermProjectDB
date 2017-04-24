@@ -1,0 +1,63 @@
+.jumbotron {
+background-image: url("../pics/dinner.jpg");
+background-size: cover;
+
+}
+
+.jumbotron h1{
+    color: white;
+    background-color: black;
+    background-size: auto;
+    background: 
+}
+.jumbotron p{
+    color: white;
+    background-color: black;
+}
+
+.jumbotron a{
+    color: black;
+    background-color: transparent;
+    float: right;
+    font-size: 15px;
+}
+
+#Title {
+   background: black;
+    overflow: hidden;
+    max-width: 600px;
+    //margin: 50px auto;
+    //padding: 20px;
+
+}
+
+#ParagraphTitle {
+    background: black;
+    overflow: hidden;
+    max-width: auto;
+}
+
+#preferences {
+    padding-left: 20px; 
+}
+
+#bod {
+    background-color: white;
+}
+
+.img-circle {
+    max-height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+}
+
+#restList {
+    font-size: 17px;
+
+}
+
+#imgDiv {
+        padding-bottom: 10px;
+}

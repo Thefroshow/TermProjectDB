@@ -45,6 +45,7 @@ public class Exchange {
     public void respondFile(){
 
         String path = httpExchange.getRequestURI().getPath();
+        System.out.println("PATH TESTING: " + path);
         respondFile(path);
 
     }

@@ -34,29 +34,11 @@ public class DataHandler extends Handler {
 
             switch (actionType){
 
-                case "create":
-                    helper = new CreateHelper(exchange,dbConnHelper);
-                    break;
-
-                case "delete":
-                    helper = new DeleteHelper(exchange,dbConnHelper);
-                    break;
 
                 case "find":
                     helper = new FindHelper(exchange,dbConnHelper);
                     break;
 
-                case "store":
-                    helper = new StoreHelper(exchange,dbConnHelper);
-                    break;
-
-                case "traverse":
-                    helper = new TraverseHelper(exchange,dbConnHelper);
-                    break;
-
-                case "register":
-                    helper = new StoreHelper(exchange,dbConnHelper);
-                    break;
                 default:
                     exchange.pageNotFound();
                     break;

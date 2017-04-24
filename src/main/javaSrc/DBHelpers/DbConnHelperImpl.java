@@ -69,7 +69,7 @@ public class DbConnHelperImpl implements DbConnHelper {
         }
 
         try {
-            log.out("connecting to EVOTE database");
+            log.out("connecting to DinnerDateDecider database");
             dbConnection = DriverManager.getConnection(
                     DbConfig.DB_CONNECTION_URL, DbConfig.DB_CONNECTION_USERNAME, DbConfig.DB_CONNECTION_PWD);
             return dbConnection;

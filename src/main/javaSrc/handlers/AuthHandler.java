@@ -26,6 +26,6 @@ public class AuthHandler extends Handler {
         DbConnHelper dbConnHelper = new DbConnHelperImpl();
         String[] response = auth.isValidCredentials(exchange,dbConnHelper); //use service to validate credintials
 
-        exchange.respondStr((response[1]+"?token="+response[0]), "text/html"); //return redirect
+        exchange.respondStr((response[1]+"?token="+response[0]+"#/homeScreen"), "text/html"); //return redirect
     }
 }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Cheat Sheet</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+
+
+
+</head>
+
+<body id="bod">
+<!-- JUMBOTRON -->
+<div class="jumbotron text-center">
+    <div class="container">
+        <a href="http://localhost:9001/login.html" class="btn btn-default">Logout</a>
+        <!--<button class="btn btn-default" href="http://localhost:9001/login.html">Logout</button>-->
+        <h1 id="Title">Dinner Date Decider</h1>
+        <p id="ParagraphTitle">Can't find a place to eat with bae? Let us help!</p>
+    </div>
+</div>
+
+<div class="row">
+    <!-- FORMS -->
+    <div class="col-md-6">
+        <h1 id="preferences">Your preferences</h1>
+        <form class="col-md-10">
+            <div class="form-group">
+                <label for="stateName">State</label>
+                <input ng-model="formData.stateName" type="text" class="form-control" id="stateName" placeholder="Add State">
+                <!--<input type="text" class="form-control" placeholder="Add State">-->
+            </div>
+
+            <div class="form-group">
+                <label for="cityName">City</label>
+                <input ng-model="formData.cityName" type="text" class="form-control" id="cityName" placeholder="Add City">
+            </div>
+
+            <div class="form-group">
+                <label for="moneyName">How much do you want to spend?</label>
+                <input ng-model="formData.moneyName" type="text" class="form-control" id="moneyName" placeholder="$ ... $$$$">
+            </div>
+
+            <div class="form-group">
+                <label for="ratingName" >Minimum Rating</label>
+                <input ng-model="formData.ratingName" type="text" class="form-control" id="ratingName" placeholder="0 - 5">
+            </div>
+
+            <button type="submit" ng-click="searchForRestaurant()" class="btn btn-success">Find something!</button>
+        </form>
+
+    </div>
+    <div class="col-md-6">
+        <h1>Results</h1>
+        <div id="imgDiv">
+            <img class="img-circle" src="{{rest.image}}">
+        </div>
+        <div id="restaurantInfo">
+            <h2 id="restaurantName">{{rest.name}}</h2>
+            <ul class="list-unstyled" id="restList">
+                <li><b>Rating:</b> {{rest.rating}} out of 5</li>
+                <li><b>Price:</b> {{rest.price}}</li>
+                <li><b>Address:</b> {{rest.address}} {{rest.city}}, {{rest.state}} {{rest.zip}}</li>
+                <li><b>Website URL:</b> {{rest.urlString}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div style="height:100px"></div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+

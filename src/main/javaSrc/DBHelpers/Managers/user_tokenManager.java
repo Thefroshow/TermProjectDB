@@ -1,17 +1,11 @@
 package main.javaSrc.DBHelpers.Managers;
 
 import main.javaSrc.DBHelpers.ObjectLayer;
-import main.javaSrc.Entities.Candidate;
-import main.javaSrc.Entities.Election;
-import main.javaSrc.Entities.EntityImpl.CandidateImpl;
-import main.javaSrc.Entities.EntityImpl.UserImpl;
 import main.javaSrc.Entities.Token;
 import main.javaSrc.Entities.User;
 import main.javaSrc.helpers.EVException;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by User on 11/9/2016.
@@ -38,16 +32,9 @@ public class user_tokenManager {
         if(userType.equals("EO")){
 
             query.append("select Elections_Officer_ID, First_Name, Last_Name, Username," +
-                    " User_Password, Email_Address, Address, City, State, Zip from ElectionsOfficer " +
+                    " User_Password, Email_Address, Address, City, State, Zip from Users " +
                     "where Username = '" + userName + "'");
             isEO = true;
-        }
-        else if(userType.equals("VO")){
-
-            query.append("select Voter_ID, First_Name, Last_Name, Username," +
-                    " User_Password, Email_Address, Address, City, State, Zip from Voter " +
-                    "where Username = '" + userName + "'");
-
         }
 
         try{
@@ -81,9 +68,7 @@ public class user_tokenManager {
                     zip = rs.getString( 10 );
 
                     if(isEO)
-                        nextUser = objectLayer.createElectionsOfficer();
-                    else
-                        nextUser = objectLayer.createVoter(); // create a proxy voter object
+                        nextUser = objectLayer.createClient();
 
                     // and now set its retrieved attributes
                     nextUser.setId( voterId );
@@ -105,9 +90,9 @@ public class user_tokenManager {
 
         catch(SQLException e){
             e.printStackTrace();
-            throw new EVException("Election_Candidates.store failed to save a candidate_Issue" +e);
+            throw new EVException("client.store failed to save a candidate_Issue" +e);
         }
-        throw new EVException("Election_Candidates.restore could not restore candidate object");
+        throw new EVException("client.restore could not restore candidate object");
     }
 
 

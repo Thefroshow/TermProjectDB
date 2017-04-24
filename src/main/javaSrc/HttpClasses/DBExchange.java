@@ -2,6 +2,7 @@ package main.javaSrc.HttpClasses;
 
 import com.sun.net.httpserver.HttpExchange;
 import main.javaSrc.Entities.Entity;
+import main.javaSrc.Entities.Restaurant;
 import main.javaSrc.helpers.ParamMap;
 import org.codehaus.jackson.map.ObjectMapper;
 
@@ -30,13 +31,17 @@ public class DBExchange extends Exchange{
 
     public void returnObjectList(List<Entity> entities) {
         try {
-            for(Entity entity : entities){
-                log.out("serving "+entity.getType()+" with id "+entity.getId());
+            for(Entity entity : entities) {
+                log.out("serving " + entity.getType() + " with id " + entity.getId());
+                if(entity.getType() == "Restaurant")
+                    System.out.println("RETURN OBJ: " + ((Restaurant)entity).getName());
             }
+
             httpExchange.sendResponseHeaders(200,0);
             ObjectMapper mapper = new ObjectMapper();
             OutputStream outputStream = httpExchange.getResponseBody();
             mapper.writeValue(outputStream,entities);
+            System.out.println(outputStream.toString());
             outputStream.close();
         }catch (Exception e){
             log.error(e.toString());
